@@ -12,9 +12,9 @@ function displayToken(tokens) {
         sout = sout + "<td>" + tokens[i].name + "</td>";
         sout = sout + "<td>" + tokens[i].symbol + "</td>";
         sout = sout + "<td>" + tokens[i].date + "</td>";
-        sout = sout + "<td>" + tokens[i].price + "$" + "</td>";
-        sout = sout + "<td>" + tokens[i].cost + "$" + "</td>";
-        sout = sout + "<td>" + tokens[i].amount.toFixed(4) + "<br>" + tokens[i].symbol + "</td>";
+        sout = sout + "<td>" + (tokens[i].price) + "</td>";
+        sout = sout + "<td>" + (tokens[i].cost) + "</td>";
+        sout = sout + "<td>" + tokens[i].amount.toFixed(4) + " " + tokens[i].symbol + "</td>";
         sout = sout + "<td>" + "<input type='button' class='btn btn-outline-warning btn-sm' id='edit' onclick='editToken(" + i + ")' value='Edit'>" + "</td>";
         sout = sout + "<td>" + "<input type='button' class='btn btn-outline-danger btn-sm' id='delete' onclick='deleteToken(" + i + ")' value='Delete'>" + "</td>";
         sout = sout + "</tr>";
@@ -44,6 +44,7 @@ function addNewToken() {
     document.getElementById("price").value = "";
     document.getElementById("cost").value = "";
     displayToken(tokens);
+    updateAssetList();
 }
 
 function editToken(i) {
@@ -62,7 +63,7 @@ let index;
 function saveToken() {
     let editToken = new Token(document.getElementById("name").value, document.getElementById("symbol").value, document.getElementById("date").value, +document.getElementById("price").value, +document.getElementById("cost").value, +(document.getElementById("cost").value / document.getElementById("price").value));
     tokens.splice(index, 1, editToken);
-    alert("You have changed the token number "+(index+1));
+    alert("You have changed the token number " + (index + 1));
     displayToken(tokens);
     document.getElementById("addToken").style.display = "inline-block";
     document.getElementById("saveToken").style.display = "none";
@@ -71,14 +72,16 @@ function saveToken() {
     document.getElementById("date").value = "";
     document.getElementById("price").value = "";
     document.getElementById("cost").value = "";
+    updateAssetList();
 }
 
 function deleteToken(i) {
-    let check = confirm("Bạn chắc chắn muốn xóa giao dịch mua " + tokens[i].name + " ở ngày " + tokens[i].date + " phải không?");
+    let check = confirm("Do you want to delete transaction which bought " + tokens[i].name + " at " + tokens[i].date + "?");
     if (check) {
         tokens.splice(i, 1);
     }
     displayToken(tokens);
+    updateAssetList();
 }
 
 function reduceDuplicates(tokens) {
@@ -109,8 +112,8 @@ function updateAssetList() {
         sout = sout + "<th>" + (i + 1) + "</th>"
         sout = sout + "<td>" + assetTokens[i].name + "</td>";
         sout = sout + "<td>" + assetTokens[i].symbol + "</td>";
-        sout = sout + "<td>" + +assetTokens[i].amount.toFixed(4) + "<br>" + assetTokens[i].symbol + "</td>";
-        sout = sout + "<td>" + +assetTokens[i].cost + "$" + "</td>";
+        sout = sout + "<td>" + +assetTokens[i].amount.toFixed(4) + " " + assetTokens[i].symbol + "</td>";
+        sout = sout + "<td>" + +assetTokens[i].cost + "</td>";
         sout = sout + "<td>" + +assetTokens[i].price + "$ / 1 " + assetTokens[i].symbol + "</td>";
         sout = sout + "<td>" + "</td>";
         sout = sout + "</tr>";

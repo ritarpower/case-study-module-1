@@ -31,17 +31,18 @@
             justify-content: space-between;
             margin: 20px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
         }
         .table-import {
-            border: 2px solid blue;
+            border: 2px solid mediumblue;
             color: darkblue;
             width: 30%;
             padding: 10px;
             backdrop-filter: blur(15px);
         }
         .table-dca {
-            border: 2px solid blue;
+            text-align: center;
+            border: 2px solid mediumblue;
             color: darkblue;
             width: 65%;
             padding: 10px;
@@ -51,12 +52,14 @@
             color: red;
         }
         .table-portfolio {
-            border: 2px solid blue;
+            text-align: center;
+            border: 2px solid mediumblue;
             color: darkblue;
             width: 100%;
             margin-top: 20px;
             padding: 10px;
             backdrop-filter: blur(15px);
+            max-width: 1400px;
         }
     </style>
 </head>
@@ -68,7 +71,7 @@
     <div class="container-tables">
         <table class="table-import" style="text-align: center">
             <tr>
-                <th colspan="2" style="background-color: blue; font-size: x-large; text-align: center;color: white">Import Transaction</th>
+                <th colspan="2" style="background-color: mediumblue; font-size: x-large; text-align: center;color: white">Import Transaction</th>
             </tr>
             <tr>
                 <th>Coin</th>
@@ -80,7 +83,7 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td><input type="date" id="date"></td>
+                <td><input type="date" id="date" style="width: 64%"></td>
             </tr>
             <tr>
                 <th>Price($)</th>
@@ -102,10 +105,10 @@
         <table class="table-dca">
             <thead>
             <tr>
-                <th colspan="9" style="background-color: blue; font-size: x-large; text-align: center;color: white">DCA History</th>
+                <th colspan="9" style="background-color: mediumblue; font-size: x-large; text-align: center;color: white">DCA History</th>
             </tr>
-            <tr style="background-color: blue;color: white">
-                <th style="width: 5%">No</th>
+            <tr style="background-color: cornflowerblue;color: white">
+                <th>No</th>
                 <th>Coin</th>
                 <th>Symbol</th>
                 <th>Date</th>
@@ -130,11 +133,11 @@
 
     <table class="table-portfolio">
         <thead>
-        <tr style="background-color: blue; font-size: x-large; text-align: center;color: white">
+        <tr style="background-color: mediumblue; font-size: x-large; text-align: center;color: white">
             <th colspan="6">PORTFOLIO</th>
             <th id="total"></th>
         </tr>
-        <tr style="background-color: blue;color: white">
+        <tr style="background-color: cornflowerblue;color: white">
             <th>No</th>
             <th>Coin</th>
             <th>Symbol</th>
